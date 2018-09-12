@@ -10,12 +10,16 @@ export class AppComponent {
   title = 'app';
   //users: string[];
   data: any[] = [];
-
+  users: any[];
   constructor(public datasservice: DataService) {
     //this.users = this.datasservice.getUser();
-    this.datasservice.getData().subscribe(data => {
-      console.log(data);
-      this.data.push(data);
+    // this.datasservice.getData().subscribe(data => {
+    //   console.log(data);
+    //   this.data.push(data);
+    // });
+    this.datasservice.getuserjson().subscribe(users => {
+      this.users = users;
+      console.log(users);
     });
   }
 }

@@ -1,3 +1,23 @@
-<ul>
-  <li *ngFor="let udata of data">{{udata}}</li>
-</ul>
+<div *ngFor="let u of users">
+  <ul>
+    <li>{{u.name}}</li>
+    <li>{{u.email}}</li>
+    <li>{{u.phone}}</li>
+    <!-- <ul *ngFor="let ua of u">
+      <li>{{ua.street}}</li>
+    </ul> -->
+    <ul>
+      <li>{{u.address.street}}</li>
+      <li>{{u.address.suite}}</li>
+      <li>{{u.address.city}}</li>
+      <li>{{u.address.zip}}</li>
+      <ul>
+        <li>{{u.address.geo.lat}}</li>
+        <li>{{u.address.geo.lng}}</li>
+      </ul>
+    </ul>
+    <li>{{u.website}}</li>
+  </ul>
+  <br>
+
+</div>
