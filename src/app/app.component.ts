@@ -1,3 +1,4 @@
+import { DataService } from './services/data.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -7,4 +8,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  users: string[];
+  constructor(public datasservice: DataService) {
+    this.users = this.datasservice.getUser();
+  }
 }
