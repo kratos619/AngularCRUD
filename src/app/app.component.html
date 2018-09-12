@@ -1,3 +1,18 @@
+<form (submit)="onSubmit()">
+  <label for="name">Name</label>
+  <input type="text" [(ngModel)]="user.name" name="name">
+  <br>
+  <label for="email">email</label>
+  <input type="text" [(ngModel)]="user.email" name="email">
+  <br>
+  <label for="phone">Phone</label>
+  <input type="text" [(ngModel)]="user.phone" name="phone">
+  <br>
+  <input type="submit" name="submit" value="submit">
+</form>
+
+
+
 <div *ngFor="let u of users">
   <ul>
     <li>{{u.name}}</li>
@@ -6,7 +21,7 @@
     <!-- <ul *ngFor="let ua of u">
       <li>{{ua.street}}</li>
     </ul> -->
-    <ul>
+    <!-- <ul>
       <li>{{u.address.street}}</li>
       <li>{{u.address.suite}}</li>
       <li>{{u.address.city}}</li>
@@ -16,7 +31,8 @@
         <li>{{u.address.geo.lng}}</li>
       </ul>
     </ul>
-    <li>{{u.website}}</li>
+    <li>{{u.website}}</li> -->
+    <button (click)="onDeleteClick(u.id)">Delete me</button>
   </ul>
   <br>
 

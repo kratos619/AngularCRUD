@@ -16,9 +16,20 @@ export class DataService {
     //return this.users;
   }
 
+  addUsers(user) {
+    return this.httpc
+      .post('https://jsonplaceholder.typicode.com/users', user)
+      .map(res => res.json());
+  }
+
   getuserjson() {
     return this.httpc
       .get('https://jsonplaceholder.typicode.com/users')
+      .map(res => res.json());
+  }
+  deleteUser(id) {
+    return this.httpc
+      .delete('https://jsonplaceholder.typicode.com/users/' + id)
       .map(res => res.json());
   }
 

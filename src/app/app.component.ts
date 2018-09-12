@@ -7,7 +7,12 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app';
+  user = {
+    name: '',
+    email: '',
+    phone: ''
+  };
+  //title = 'app';
   //users: string[];
   data: any[] = [];
   users: any[];
@@ -20,6 +25,22 @@ export class AppComponent {
     this.datasservice.getuserjson().subscribe(users => {
       this.users = users;
       console.log(users);
+    });
+  }
+
+  onSubmit() {
+    this.datasservice.addUsers(this.user).subscribe(user => {
+      this.users.unshift(user);
+    });
+  }
+
+  onDeleteClick(id) {
+    this.datasservice.deleteUser(id).subscribe(res => {
+      for (let i = 0; i < this.users.length; i++) {
+        if (this.users[i].id == id) {
+          this.users.splice(i, 1);
+        }
+      }
     });
   }
 }
