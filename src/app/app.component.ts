@@ -8,8 +8,14 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
-  users: string[];
+  //users: string[];
+  data: any[] = [];
+
   constructor(public datasservice: DataService) {
-    this.users = this.datasservice.getUser();
+    //this.users = this.datasservice.getUser();
+    this.datasservice.getData().subscribe(data => {
+      console.log(data);
+      this.data.push(data);
+    });
   }
 }
