@@ -33,6 +33,12 @@ export class DataService {
       .map(res => res.json());
   }
 
+  updateUser(user) {
+    return this.httpc
+      .put('https://jsonplaceholder.typicode.com/users/' + user.id, user)
+      .map(res => res.json());
+  }
+
   getData() {
     this.data = new Observable(observer => {
       setTimeout(() => {

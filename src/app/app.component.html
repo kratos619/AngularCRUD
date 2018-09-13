@@ -1,4 +1,4 @@
-<form (submit)="onSubmit()">
+<form (submit)="onSubmit(issedit)">
   <label for="name">Name</label>
   <input type="text" [(ngModel)]="user.name" name="name">
   <br>
@@ -33,6 +33,7 @@
     </ul>
     <li>{{u.website}}</li> -->
     <button (click)="onDeleteClick(u.id)">Delete me</button>
+    <button (click)="onUpdateClick(u)">Update me</button>
   </ul>
   <br>
 
